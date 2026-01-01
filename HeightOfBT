@@ -1,0 +1,57 @@
+public class HeightOfBT {
+	static class Node
+	{
+		Node left;
+		int data;
+		Node Right;
+		 Node(int data){
+			 this.data=data;
+			 }
+	}
+	public static Node insert(Node root,int val) {
+		if(root==null) {
+			root=new Node(val);
+			return root;
+		}
+		if(root.data>val) {
+			root.left=insert(root.left,val);
+		}
+		else {
+			root.Right=insert(root.Right,val);
+		}
+		return root;
+	}
+	public static void inorder(Node root) {
+		if(root==null) {
+			return ;
+		}
+		inorder(root.left);
+		System.out.println(root.data+" ");
+		inorder(root.Right);
+	}
+	public static int HightBT(Node root) {
+		if(root==null) {
+			return 0;
+		}
+		int left=1+HightBT(root.left);
+		int rightt=1+HightBT(root.Right);
+		return left>rightt? left:rightt;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr[]= {5,8,7,12,15};
+		Node root=null;
+		for(int i=0;i<arr.length;i++) {
+			root=insert(root,arr[i]);
+		}
+		inorder(root);
+		System.out.println();
+		int height=HightBT(root);
+		System.out.println("Height of Binary search tree"+height);
+		
+		
+		
+	}
+
+}
