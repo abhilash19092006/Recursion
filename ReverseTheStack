@@ -1,0 +1,41 @@
+package Recursion;
+import java.util.Stack;
+public class ReverseStack {
+	public static Stack<Integer> insert(Stack stack,int temp ){
+		if(stack.empty()) {
+			stack.push(temp);
+			return stack;
+		}
+		int temp1=(int)stack.pop();
+		insert(stack,temp);
+		stack.push(temp1);
+		return stack;
+	}
+	public static Stack<Integer> Reverse(Stack stack){
+		if(stack.size()==1) {
+			return stack;
+		}
+		int temp=(int)stack.pop();
+		Reverse(stack);
+		insert(stack,temp);
+		return stack;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Stack<Integer> stack=new Stack<>();
+		stack.push(44);
+		stack.push(23);
+		stack.push(14);
+		stack.push(2);
+		stack.push(3);
+		stack.push(55);
+		stack=Reverse(stack);
+		while(!stack.empty()) {
+			int temp=stack.pop();
+			System.out.print(temp+"->");
+			
+		}
+
+	}
+
+}
