@@ -1,0 +1,26 @@
+package Recursion;
+import java.util.Scanner;
+public class TowerOfHanoi {
+
+	static int totalcount=0;
+	public static void Count(int n,int s,int d,int h) {
+	
+		if(n==1) {
+			System.out.println("Moving plate"+n+"from"+ s+"to"+h);
+			totalcount++;
+			return;
+		}
+		Count(n-1,s,h,d);
+		System.out.println("Moving plate"+n+"from"+ s+"to"+h);
+		totalcount++;
+		Count(n-1,h,d,s);
+	}
+	public static void main(String[] args) {
+		Scanner scr=new Scanner(System.in);
+		int n=scr.nextInt();
+		Count(n,1,2,3);
+		System.out.println("Total number of Minimum movies ="+ totalcount);
+
+	}
+
+}
