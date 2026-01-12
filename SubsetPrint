@@ -1,0 +1,27 @@
+package Recursion;
+
+public class permutationOfaWord {
+	public static void solve(String IP,String OP) {
+		if(IP.length()==0) {
+			System.out.println(OP);
+			return ;
+		}
+		String op1=OP;
+		String op2=OP;
+		op2+=IP.charAt(0);
+		IP=IP.substring(1);
+		solve(IP,op1);
+		solve(IP,op2);
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String ip="abc";
+		String op=" ";
+		solve(ip,op);
+
+	}
+
+}
