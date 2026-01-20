@@ -1,0 +1,31 @@
+package Recursion;
+import java.util.ArrayList;
+class solution{
+	ArrayList<String> permutation;
+	ArrayList<String> permutation(String str){
+		permutation=new ArrayList<>();
+		helper(str,str.charAt(0)+"",1,permutation);
+		return permutation;
+	}
+	void helper(String original,String permutation,int index,ArrayList<String> result) {
+		if(index==original.length()) {
+			result.add(permutation);
+			return;
+		}
+		helper(original,permutation +" "+original.charAt(index),index+1,result);
+		helper(original,permutation+original.charAt(index),index+1,result);
+	}
+}
+public class permutationSpacing {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		solution solution = new solution();
+        String S = "ABC";
+        ArrayList<String> permutations = solution.permutation(S);
+        System.out.println("Permutations of " + S + " are:");
+        for (String permutation : permutations) {
+            System.out.println(permutation);
+        }
+	}
+
+}
