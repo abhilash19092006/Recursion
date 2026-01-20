@@ -1,0 +1,27 @@
+package Recursion;
+
+public class permutationWithChanCase {
+	public static void CaseChange(String ip,String op) {
+		if (ip.length() == 0) {
+            System.out.println(op);
+            return;
+        }
+        char var = ip.charAt(0);
+        String op1 = op + Character.toLowerCase(var);
+        String op2 = op + Character.toUpperCase(var);
+        ip = ip.substring(1);
+        CaseChange(ip, op1);
+        CaseChange(ip, op2);
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String ip="ABHI";
+		String op="";
+		CaseChange(ip,op);
+		
+
+	}
+
+}
