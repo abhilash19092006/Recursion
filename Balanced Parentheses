@@ -1,0 +1,29 @@
+package Recursion;
+import java.util.Scanner;
+
+public class BalancedParentheses {
+	public static void GenerateParentheses(String op,int n,int open,int close) {
+		if(op.length()==n*2) {
+			System.out.println(op);
+			return;
+		}
+		if (open < n) {
+            GenerateParentheses(op + "(", n, open + 1, close);
+        }
+        
+        if (close < open) {
+            GenerateParentheses(op + ")", n, open, close + 1);
+        }
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the numnber");
+		int n=sc.nextInt();
+		GenerateParentheses("",n,0,0);
+		
+	}
+
+}
