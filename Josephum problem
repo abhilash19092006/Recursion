@@ -1,0 +1,36 @@
+package Recursion;
+import java.util.ArrayList;
+import java.util.Scanner;
+class FindSol{
+	static int var=0;
+	public void CalCuMem(ArrayList a,int k) {
+	if(a.size()==1)
+		System.out.println(a+" iis thee black sheep(JosephumPr) ");
+	else {
+		var=(var+k-1)%a.size();
+		a.remove(var);
+		CalCuMem(a,k);
+	}
+	}
+}
+public class JosephumPr {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FindSol sol=new FindSol();
+		Scanner sc=new Scanner(System.in);
+		ArrayList a=new ArrayList<>();
+		System.out.println("Enter Number of Soldiers:");
+		int SL=sc.nextInt();
+		System.out.println("Enter hte count They perfer:");
+		int count =sc.nextInt();
+		for(int i=0;i<SL;i++) {
+			a.add(i, i+1);
+		}
+		sol.CalCuMem(a, count);
+		
+		
+
+	}
+
+}
